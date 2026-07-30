@@ -278,7 +278,7 @@ def main():
             """
             print(goofbye_art)
 
-            print("     Closing........................" \
+            print("     Closing the program........................" \
             "" \
             "" \
             "")
