@@ -164,6 +164,8 @@ def input_new_data ():
             new_skill.append(input_skill)
         if input_skill.lower() == 'exit':
             break
+
+
     print("Please enter pokemon's stats:")
     new_stats['hp'] = int(input(f"Enter hp stats:"))
     new_stats['attack'] = int(input(f"Enter attack stats:"))
@@ -171,7 +173,7 @@ def input_new_data ():
     new_stats['sp_attack'] = int(input(f"Enter sp attack stats:"))
     new_stats['sp_defense'] = int(input(f"Enter sp defense stats:"))
     new_stats['speed'] = int(input(f"Enter speed stats:"))
-# Queda pendiente empaquetar todo los header para el diccionario new_pokemon, tambien hacer la relacion con JSON
+    # TODO: Queda pendiente empaquetar todo los header para el diccionario new_pokemon, tambien hacer la relacion con JSON
     new_pokemon = {
         'name': name,
         'type': pokemon_type,
@@ -278,7 +280,7 @@ def main():
             """
             print(goofbye_art)
 
-            print("     Closing........................" \
+            print("     Closing the program........................" \
             "" \
             "" \
             "")
