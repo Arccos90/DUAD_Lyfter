@@ -1,0 +1,44 @@
+commit 999f43c520b1f8f59ed2ca4c1f12984776f183bb (HEAD -> past_exercises, origin/past_exercises)
+COMMIT_CONTEXT: I found older files about IT_Essencials and copy on the branch file to commit then.
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Thu Jul 30 16:09:25 2026 -0600
+
+    adding one file about exercise of IT_esencials
+
+commit b1da1edafbb0a46ffed8ad5ac21a9552352cf317 (origin/main, origin/HEAD, main)
+Merge: 7d1cf08 0aeb163
+Author: Daniel Fernández <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:58:54 2026 -0600
+
+    Merge pull request #2 from Arccos90/ejercicios_modulos
+    
+    Module Example
+
+commit 0aeb1632e8884ff41120b87168c9939a0005b7bc (origin/ejercicios_modulos, ejercicios_modulos)
+COMMIT_CONTEXT: I created a new file on Python_Intermedio. And created new python file and then made merge.
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:54:29 2026 -0600
+
+    Module Example
+
+commit 7d1cf08970a71109d5b0491fd0f25b4dd4ac7bfe
+COMMIT_CONTEXT: On this commit. I added all the files about DUAD_Lyfter. Following the class about how to use Git and then i made merge. 
+Merge: 31a0cee b3d840d
+Author: Daniel Fernández <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:47:10 2026 -0600
+
+    Merge pull request #1 from Arccos90/ejercicios_listos
+    This is a new version of my files. With reviews
+
+commit b3d840d6c58fb836a11cfc88d736a9df79cf6b39 (origin/ejercicios_listos, ejercicios_listos)
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:36:51 2026 -0600
+
+    This is a new version of my files
+
+commit 31a0cee8781375739ab31ec4dc2609ee8acc431c
+Author: Daniel Fernández <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:12:53 2026 -0600
+
+    Initial commit
+(END)
