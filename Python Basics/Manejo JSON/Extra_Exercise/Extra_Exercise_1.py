@@ -262,7 +262,7 @@ def main():
             if next_option == "":
                 continue
         elif main_menu_option == 6:
-            goofbye_art = """
+            goodbye_art = """
     ╔══════════════════════════════════════════════════════╗
     ║                                                      ║
     ║      Thanks for using Pokemon Wallet! See you!       ║
@@ -278,7 +278,7 @@ def main():
             
             
             """
-            print(goofbye_art)
+            print(goodbye_art)
 
             print("     Closing the program........................" \
             "" \
@@ -288,4 +288,4 @@ def main():
         else:
             print("Option Failure. Please enter a number between 1 to 6.")
     
-main()
+main() 
