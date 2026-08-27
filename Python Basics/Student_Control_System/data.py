@@ -112,4 +112,3 @@ def avg_sort_read_file (file_path):
 
 
 terminal_route = os.path.dirname(os.path.abspath(__file__))+"/Student_BD.csv"
-avg_sort_read_file(terminal_route)

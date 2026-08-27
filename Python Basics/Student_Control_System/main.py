@@ -6,6 +6,7 @@ import data
 def main ():
     terminal_route = os.path.dirname(os.path.abspath(__file__))+"/Student_BD.csv"
     print(terminal_route)
+    
     while True:
             menu.display_menu()
             main_menu_option= int(input(f"Por favor ingrese una opción:"))
