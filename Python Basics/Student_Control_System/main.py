@@ -5,48 +5,41 @@ import data
 
 def main ():
     terminal_route = os.path.dirname(os.path.abspath(__file__))+"/Student_BD.csv"
+    student_session_list = []
     print(terminal_route)
     
     while True:
             menu.display_menu()
-            main_menu_option= int(input(f"Por favor ingrese una opción:"))
+            try:
+                main_menu_option= int(input(f"Por favor ingrese una opción:"))
+            except ValueError:
+                print("!Error! Debe ingresar un número entero")
+                continue
             if main_menu_option == 1:
-                print("-------------------INGRESE UN NUEVO ESTUDIANTE------------------------")
-                student_data= actions.input_new_data()
-                final_data_ready = actions.save_input_new_data (student_data)
-                next_option= input("Desea guardar la informacion? <S/N>:").upper()
-                if next_option == "S":
-                    if data.counter_data_on_file(terminal_route)==0:
-                        print (data.counter_data_on_file(terminal_route))
-                        data.write_on_file(terminal_route,final_data_ready)
-                    elif data.counter_data_on_file(terminal_route)>=0:
-                        print (data.counter_data_on_file(terminal_route))
-                        data.append_on_file(terminal_route,final_data_ready)
-                elif next_option == "N":
-                    continue
-            elif main_menu_option == 5:
-                print("-------------------BUSQUEDA POR NOMBRE DE ESTUDIANTE------------------------")
-                #new_pokemon_info = input_new_data()
-                #append_on_json_file (terminal_route, new_pokemon_info)
-                next_option=input("Desea continuar? <S/N>: ").upper()
-                if next_option == "S":
-                    menu.display_menu()
-                    continue
-                else:
-                    break
-    
+                while True:
+                    print("-------------------INGRESE UN NUEVO ESTUDIANTE------------------------")
+                    student_data= actions.input_new_data(student_session_list)
+                    student_session_list.append(student_data)
+                    print(student_session_list)
+                    print ("Desea ingresar otro estudiante?")
+                    menu_option = input(f"S/N :").upper()
+                    if menu_option == "N":
+                        break
+                continue
+
             elif main_menu_option == 2:  
                 print("-------------------REPORTE ESTUDIANTES INGRESADOS-----------------------")
-                #report_by_type(terminal_route)
-                data.read_file(terminal_route)
+                for index, student in enumerate (student_session_list, start=1):
+                    print(f"{index}...ID: {student['ID']} --Nombre: {student['student_name']} {student['last_name']} {student['second_surname']}___ Sección: {student['type']}")
                 next_option=input("Desea continuar? <S/N>: ").upper()
                 if next_option == "N":
                     break
                 elif next_option == "S":
                     continue
             elif main_menu_option == 3:
+
                 print("-------------------REPORTE NOTAS TOP 3------------------------")
-                data.avg_sort_read_file(terminal_route)
+                data.avg_sort_temporary_file(student_session_list)
                 next_option=input("Desea continuar? <S/N>: ").upper()
                 if next_option == "N":
                     break
@@ -54,13 +47,41 @@ def main ():
                     continue
             elif main_menu_option == 4:
                 print("-------------------REPORTE DE NOTAS PROMEDIO POR ESTUDIANTE------------------------")
-                data.avg_read_file(terminal_route)
+                data.avg_read_temporary_file(student_session_list)
                 next_option=input("Desea continuar? <S/N>: ").upper()
                 if next_option == "S":
                     continue
                 else:
                     break
+            elif main_menu_option == 5:
+                print("Exportando------------------------")
+                data.write_on_file(terminal_route,student_session_list)
+                next_option=input("Desea continuar? <S/N>: ").upper()
+                if next_option == "S":
+                    continue
+                else:
+                    break
+
             elif main_menu_option == 6:
+                print("Importando------------------------")
+                saved_student=data.read_file(terminal_route)
+                student_session_list.extend(saved_student)
+                next_option=input("Desea continuar? <S/N>: ").upper()
+                if next_option == "S":
+                    continue
+                else:
+                    break
+
+            elif main_menu_option == 7:
+                print("-------------------REPORTE DE NOTAS PROMEDIO GENERAL-----------------------")
+                data.avg_total_temporary_file(student_session_list)
+                next_option=input("Desea continuar? <S/N>: ").upper()
+                if next_option == "S":
+                    menu.display_menu()
+                    continue
+                else:
+                    break
+            elif main_menu_option == 8:
                 menu.bye_banner()
     
                 break

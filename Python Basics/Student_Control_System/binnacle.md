@@ -30,4 +30,19 @@ _Also, I did the report for the menu option 4, it brings a report by student.
     _ Maybe I will should to combine the option 5 and 7. I think that they makes the same function.
 
 
-## 📅 Session: Tuesday (11/08/26)
+## 📅 Session: Tuesday (26/08/26)
+** Agenda:
+[] 1. Lista en memoria vs. CSV
+    Debe trabajar primero con una lista en memoria, y que el CSV se usa únicamente cuando el usuario elige exportar o importar. Actualmente, los datos se guardan directo al CSV al ingresar un estudiante, y los reportes leen desde el archivo. Lo que se espera es: mantener una lista de diccionarios activa durante la sesión, y solo escribir/leer el CSV cuando el usuario lo pida explícitamente desde el menú.
+[] 2. Opciones de Exportar e Importar en el menú
+    Faltan dos opciones dedicadas en el menú: una para exportar los datos actuales al CSV, y otra para importar desde un CSV existente. La importación debe cargar los datos en la lista en memoria del programa. Si no existe el archivo al importar, debe informárselo al usuario sin que el programa se rompa.
+[] 3. Promedio general entre todos los estudiantes
+    Esta es una de las funciones requeridas y aún no está implementada. Debe calcular el promedio de los promedios de todos los estudiantes y mostrarlo al usuario desde una opción del menú.
+[] 4. Bug en data.py: variable no definida dentro de funciones
+    Las funciones read_file() y avg_read_file() usan terminal_route internamente, pero esa variable no está definida dentro de su scope, solo existe al final del módulo. Esto causará un NameError al ejecutarlas. Cada función debe recibir la ruta como parámetro (ya lo hace file_path, pero la línea counter_data_on_file(terminal_route) usa la variable global). Además, al final de data.py hay una llamada directa a avg_sort_read_file(terminal_route) que se ejecuta cada vez que el módulo es importado; esa línea debe eliminarse.
+[] 5. Validación de entrada en el menú
+    La línea int(input(...)) en main.py no está protegida con try/except. Si el usuario escribe texto en vez de un número, el programa se romperá con un ValueError. Lo mismo aplica para float(input(...)) en las notas. Envolver esas conversiones en un bloque try/except permitiría mostrar un mensaje amigable y seguir ejecutando.
+
+**📌 To do: **                    
+[] to work on the option 5. Works on a report with a student filter. I think that, i could make a extra menu on this part, and bring the option to choice while kind of data the user would choice. For example, filter by name or second name or other filter by section.
+[] Create option 7. Find a student by name and section. Aks to confirm before to delete.
