@@ -22,8 +22,10 @@ def display_menu ():
     2- Reporte de estudiantes ingresados.
     3- Reporte Notas Estudiantes Top 3 .
     4- Reporte de Notas por Estudiante.
-    5- Busqueda por Nombre de Estudiante.
-    6- Exit.
+    5- Exportar a CSV
+    6- Importar desde CSV
+    7- Reporte de notas promedio general.
+    8- Exit.
 ---------------------------------------------------------------------------------
             """
             print (menu_text)
