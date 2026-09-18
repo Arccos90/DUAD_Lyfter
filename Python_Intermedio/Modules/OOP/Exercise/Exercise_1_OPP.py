@@ -1,15 +1,17 @@
 import math
 class Circle:
-    radius = 0
+    def __init__ (self, radius:float):
+        self.radius = radius
        
-    def get_area(self, radius):
-        self.area = (radius**2)*math.pi
-        print(f"El area del circulo es {self.area}")
-        return
+    def get_area(self):
+        area = (self.radius**2)*math.pi
+        return area
+        
 
 
-area_circle_1 = Circle()
-radio = int(input(f"Ingrese un valor de radio: "))
-area_circle_1.get_area(radio)
+radio = float(input("Ingrese un valor de radio: "))
+circle_1 = Circle(radio)
+area =circle_1.get_area()
+print(f"El area del circulo es: {area:.2f}") #:.2f led me show only 2 decimals
 
         
