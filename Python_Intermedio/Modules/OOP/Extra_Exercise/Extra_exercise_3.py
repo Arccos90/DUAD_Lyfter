@@ -13,7 +13,7 @@ class Inventory:
         self.counter = 0
     def add_product (self, product: Product):
         add_product = self.stock_list.append (product)
-        print(f"se ha agself.total_price = total_priceregado el producto: {product.name}")
+        print(f"se ha agregado el producto: {product.name}")
         self.show_products()
        
     def show_products (self):
@@ -23,7 +23,7 @@ class Inventory:
         print("--------------Inventario actual---------------")
         for i, item in enumerate (self.stock_list, start=1):
             sub_total = item.price*item.quantity
-            print(f"{i} -- {item.name}__price: ${item.price}___ Qty:{item.quantity} und | Inventario Acumulado: {sub_total}")
+            print(f"{i} -- {item.name}__price: ${item.price}___ Qty:{item.quantity} und | Inventario Acumulado: ${sub_total}")
         self.show_total_stock ()
 
     def show_total_stock (self):
@@ -50,7 +50,7 @@ while True:
         elif next_option == "s":
             continue
         
-    elif save_product.lower()== "n":
+    elif save_product== "n":
         print("Gracias por usar nuestro programa de gestión de inventario!!")
         break
 
