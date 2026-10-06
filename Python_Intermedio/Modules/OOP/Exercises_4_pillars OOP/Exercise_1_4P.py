@@ -28,15 +28,15 @@ class SavingAccount (BankAccount):
         super().__init__(titular, balance)
         self.min_balance = min_balance
         
-    def saving_money (self):
-        self.deposit_money()
+    def saving_money (self, amount:float):
+        self.deposit_money(amount)
 
     def retire_money (self, amount:float):
         if amount < 0:
-            print("El monto debe ser mayor a cero")
-        elif self._balance - amount < min_balance:
-            print("el monto es superior al minimo autorizado")
-        elif self._balance - amount >= min_balance:
+            raise ValueError ("El monto debe ser mayor a cero")
+        elif self._balance - amount < self.min_balance:
+            raise ValueError ("Operación rechazada, el saldo no puede quedar por debajo del mínimo")
+        elif self._balance - amount >= self.min_balance:
             self._balance -= amount
             print(f"Retiro exitoso, su saldo actual es: ${self._balance}")
         
@@ -48,12 +48,15 @@ new_account = SavingAccount(name,initial_balance,min_balance)
 while True:
     action = int(input("¿Que acción desea realizar? 1-Depositar / 2-Retirar:  "))
     amount = float(input("Ingrese el monto:  $"))
-    if action == 1:
-        new_account.deposit_money(amount)
-        continue
-    elif action == 2:
-        new_account.retire_money(amount)
-        continue
-    else:
-        print("Opción no válida")
-        continue
+    try:
+        if action == 1:
+            new_account.deposit_money(amount)
+            continue
+        elif action == 2:
+            new_account.retire_money(amount)
+            continue
+        else:
+            print("Opción no válida")
+            continue
+    except ValueError as error:
+        print(f"[Error en la transacción]: {error}")
