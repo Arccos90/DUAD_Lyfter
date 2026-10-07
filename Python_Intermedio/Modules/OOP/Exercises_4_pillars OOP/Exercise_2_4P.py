@@ -35,7 +35,7 @@ class Square (Shape):
     def calculate_perimeter(self):
         perimeter = self.side*4
         print(f"El perimetro del cuadrado es: {perimeter: .2f}")
-        return
+        return perimeter
 
 class Rectangle (Shape):
     def __init__(self, side_a:float, side_b:float):
