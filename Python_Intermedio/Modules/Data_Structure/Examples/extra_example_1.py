@@ -39,8 +39,8 @@ pila = Stack()
 first_plate = "soy el primer plato"
 pila.push (first_plate)
 
-seconf_plate = "soy el segundo plato"
-pila.push (seconf_plate)
+second_plate = "soy el segundo plato"
+pila.push (second_plate)
 
 third_plate = "soy el tercer plato"
 pila.push (third_plate)
