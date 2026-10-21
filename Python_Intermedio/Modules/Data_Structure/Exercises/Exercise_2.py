@@ -64,12 +64,9 @@ class Deque:
         print(f"HEAD: {self.head.data}")
         print("---------NODOS---------------")
         actual = self.head
-        elements = []
         while actual is not None:
             print(actual.data)
-            elements.append(str(actual.data))
             actual = actual.next
-        print(f"{elements}")
 
         print("--------------FIN---------------")
         print(f"TAIL: {self.tail.data}")
