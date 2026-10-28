@@ -1,10 +1,10 @@
 #Exercise_1
 def bubble_sort(sort_list):
-    for out_item in range(0,len(sort_list)):
-        print(f"Iteration quantity: {len(sort_list)-out_item}")
-        change_dectector = False
-        for index in range(0,len(sort_list)-1):
-            current_item = sort_list[index]
+    for out_item in range(0,len(sort_list)): # O(1)
+        print(f"Iteration quantity: {len(sort_list)-out_item}") #O(1)
+        change_dectector = False #O(1)
+        for index in range(0,len(sort_list)-1): #O(2)
+            current_item = sort_list[index]      
             next_item = sort_list[index+1]
             print(f"Iteration: {out_item}/{index}, actual number is: {current_item}, next number is {next_item}")
             if current_item > next_item:
