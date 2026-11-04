@@ -10,5 +10,5 @@ def main():
     original_text =input("Ingrese una frase:") # El valor de la variable original_text, se usa como el valor para la función reverse_string
     final_text = reverse_string(original_text)
     print(f"Su frase invertida es: {final_text}")
-
-main()
+if __name__== "__main__":
+    main()

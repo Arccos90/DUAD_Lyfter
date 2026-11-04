@@ -25,4 +25,5 @@ def main():
     final_count_lowers = lower_letters (original_text)
     print(f"There are {final_count_uppers} upper cases,and {final_count_lowers} lower cases")
 
-main()
+if __name__== "__main__":
+    main()
