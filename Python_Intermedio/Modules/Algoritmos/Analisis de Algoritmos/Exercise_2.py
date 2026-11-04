@@ -3,23 +3,23 @@ def print_numbers_times_2(numbers_list):
 		print(number * 2)           #O(1)                                         
 
 def check_if_lists_have_an_equal(list_a, list_b):
-	for element_a in list_a:
-		for element_b in list_b:
-			if element_a == element_b:
+	for element_a in list_a:      # O(n)
+		for element_b in list_b:  # O(n x m)
+			if element_a == element_b: # O (1)
 				return True
 				
 	return False
 
 def print_10_or_less_elements(list_to_print):
-	list_len = len(list_to_print)
-	for index in range(min(list_len, 10)):
-		print(list_to_print[index])
+	list_len = len(list_to_print)              #O(1)
+	for index in range(min(list_len, 10)):     #O(1) 10 elementos no es considerable en big O
+		print(list_to_print[index])            #O(1)
 
 def generate_list_trios(list_a, list_b, list_c):
-	result_list = []
-	for element_a in list_a:
-		for element_b in list_b:
-			for element_c in list_c:
-				result_list.append(f'{element_a} {element_b} {element_c}')
+	result_list = []                          # O(1)
+	for element_a in list_a:                  # O(n), no sabemos el tamano de la lista_a
+		for element_b in list_b:              # O(n x m), tampoco sabemos el tamano de la lista_b
+			for element_c in list_c:          # O(n x m x k), no sabemos el tamano de la lista_c
+				result_list.append(f'{element_a} {element_b} {element_c}') #O(1)
 				
 	return result_list 
