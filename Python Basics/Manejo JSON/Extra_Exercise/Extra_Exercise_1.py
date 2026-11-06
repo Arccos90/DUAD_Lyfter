@@ -164,6 +164,8 @@ def input_new_data ():
             new_skill.append(input_skill)
         if input_skill.lower() == 'exit':
             break
+
+
     print("Please enter pokemon's stats:")
     new_stats['hp'] = int(input(f"Enter hp stats:"))
     new_stats['attack'] = int(input(f"Enter attack stats:"))
@@ -171,7 +173,7 @@ def input_new_data ():
     new_stats['sp_attack'] = int(input(f"Enter sp attack stats:"))
     new_stats['sp_defense'] = int(input(f"Enter sp defense stats:"))
     new_stats['speed'] = int(input(f"Enter speed stats:"))
-# Queda pendiente empaquetar todo los header para el diccionario new_pokemon, tambien hacer la relacion con JSON
+    # TODO: Queda pendiente empaquetar todo los header para el diccionario new_pokemon, tambien hacer la relacion con JSON
     new_pokemon = {
         'name': name,
         'type': pokemon_type,
@@ -260,7 +262,7 @@ def main():
             if next_option == "":
                 continue
         elif main_menu_option == 6:
-            goofbye_art = """
+            goodbye_art = """
     ╔══════════════════════════════════════════════════════╗
     ║                                                      ║
     ║      Thanks for using Pokemon Wallet! See you!       ║
@@ -276,9 +278,9 @@ def main():
             
             
             """
-            print(goofbye_art)
+            print(goodbye_art)
 
-            print("     Closing........................" \
+            print("     Closing the program........................" \
             "" \
             "" \
             "")
@@ -286,4 +288,4 @@ def main():
         else:
             print("Option Failure. Please enter a number between 1 to 6.")
     
-main()
+main() 

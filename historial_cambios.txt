@@ -1,0 +1,55 @@
+commit 797546be925001002b3759c54ad1873e9e2395e1 (HEAD -> fix-errores-menores, origin/fix-errores-menores)
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Tue Aug 4 18:36:09 2026 -0600
+
+    Try to fix all the comments about structure and files name
+
+commit 906020bc98c87a8c6fd1ea7cfa89474f19932e98
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Tue Aug 4 17:32:46 2026 -0600
+
+    adding the IT essencials exercise and Logica de Programacion
+
+commit 8d99d0aab386ec341b96c293867fa427a8b54035
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Thu Jul 30 17:00:11 2026 -0600
+
+    I made some changes on Python Basics>Manejo Json>Extra_Exercise_1.py. Replace a little mistake of next_option on function Main(). It is not declarated right on the conditional i
+f (wrote only next).
+
+commit b1da1edafbb0a46ffed8ad5ac21a9552352cf317 (origin/main, origin/HEAD, main)
+Merge: 7d1cf08 0aeb163
+Author: Daniel Fernández <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:58:54 2026 -0600
+
+    Merge pull request #2 from Arccos90/ejercicios_modulos
+    
+    Module Example
+
+commit 0aeb1632e8884ff41120b87168c9939a0005b7bc (origin/ejercicios_modulos, ejercicios_modulos)
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:54:29 2026 -0600
+
+    Module Example
+
+commit 7d1cf08970a71109d5b0491fd0f25b4dd4ac7bfe
+Merge: 31a0cee b3d840d
+Author: Daniel Fernández <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:47:10 2026 -0600
+
+    Merge pull request #1 from Arccos90/ejercicios_listos
+    
+    This is a new version of my files. With reviews
+
+commit b3d840d6c58fb836a11cfc88d736a9df79cf6b39 (origin/ejercicios_listos, ejercicios_listos)
+Author: Arccos90 <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:36:51 2026 -0600
+
+    This is a new version of my files
+
+commit 31a0cee8781375739ab31ec4dc2609ee8acc431c
+Author: Daniel Fernández <nenofer55@gmail.com>
+Date:   Thu Jul 30 15:12:53 2026 -0600
+
+    Initial commit
+(END)
