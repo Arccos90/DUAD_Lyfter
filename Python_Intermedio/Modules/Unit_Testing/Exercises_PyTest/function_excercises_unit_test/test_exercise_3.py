@@ -1,4 +1,5 @@
 from exercise_3 import sum_numbers
+<<<<<<< HEAD
 import pytest
 def test_sum_numbers_sums_correctly ():
 
@@ -31,3 +32,11 @@ def test_sum_numbers_with_string():
    with pytest.raises(TypeError) as error:
       sum_numbers(test_list)
    print(f"\n[DEBUG] Mensaje real capturado: {error.value}") 
+=======
+def test_sum_numbers_sums_correctly ():
+ #arrange
+ test_list = [4,5,20,50,40]
+ #act
+ result = sum_numbers(test_list)
+ assert result == 119
+>>>>>>> ce849ab48ae1d3dfe7f855aefc5fc4c5d23b4fda
