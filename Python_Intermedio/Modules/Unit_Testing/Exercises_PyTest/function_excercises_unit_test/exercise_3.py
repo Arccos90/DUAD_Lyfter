@@ -6,5 +6,15 @@ def sum_numbers(number_list):
         total += number
     print("La suma de los números en la lista es:", total)
     return total
+<<<<<<< HEAD
+
+def main():
+    number_list = [12, 45, 67, 89, 23, 56, 78]
+    sum_numbers(number_list)
+
+if __name__== "__main__":
+    main()
+=======
 number_list = [12, 45, 67, 89, 23, 56, 78]
 sum_numbers(number_list)
+>>>>>>> ce849ab48ae1d3dfe7f855aefc5fc4c5d23b4fda

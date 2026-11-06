@@ -1,0 +1,28 @@
+______Binnacle Unit Test Exercises______
+
+**Backlog:
+1. Los tests de "no funciona con parámetros que no sean una lista" pasan, pero por accidente: el TypeError lo lanza Python al intentar asignar sobre un string o una tupla, no tu función. Prueba qué pasa si le mandas un string que ya viene ordenado, como "abc". ¿Se sigue lanzando el error? Verifica cómo podrías hacer que bubble_sort valide el tipo del parámetro por sí misma al inicio y lance el error de forma intencional.
+2. BubleSort.py y exercise_3.py ejecutan código a nivel de módulo (la lista de prueba, la llamada y los print), así que cada vez que pytest importa el archivo ese código corre también. Revisa cómo usaste if __name__ == "__main__": en los ejercicios 4 y 5 y aplica lo mismo aquí.
+3. Los print dentro de bubble_sort están geniales para entender el algoritmo, pero con la lista grande generan miles de líneas de salida. Piensa si una función de ordenamiento debería imprimir algo, o si esa explicación paso a paso podría vivir en otro lado.
+4. La segunda parte pide 3 casos de éxito distintos para cada ejercicio de funciones. Por ahora hay uno por función en el 3, 4 y 5. Busca casos que realmente prueben algo diferente: una lista con negativos o con un solo número, un string vacío o con un solo carácter, una frase sin mayúsculas, etc.
+5. Faltan los tests de los ejercicios 6 (ordenar palabras separadas por guiones) y 7 (detector de primos). Ojo que en ambos el código corre directo al importar (main() sin protección y el input() del 7 a nivel de módulo), así que vas a tener que acomodarlos antes de poder probarlos.
+6. Se subieron las carpetas __pycache__ y un archivo vacío llamado Unit_testing. Revisa cómo agregar un .gitignore para que esos archivos generados no lleguen al repo, y elimina el archivo que no se usa.
+7. En el archivo de tests la indentación es de un solo espacio. Revisa PEP 8 y usa 4 espacios para que sea consistente con el resto de tus archivos.
+
+** Did it: Work sesion 5/11/26
+1.  -Puse un codigo al inicio para poder detectar si el parámetro que se ingresa es una lista, si no lo es hace "raise" del TypeError
+    -También incorporé en el test, una forma para poder validar el tipo de error que esta ocurriendo. Por ejemplo, si el valor que se recibe no es una lista, puedo validar que precisamente ese es el error. En otros casos se puede validar que se ingresó un string.
+    -
+2. -Ya incluí la mejora de if__main__ == "__main__":
+   
+3. -Ya hice las correcciones para evitar que se imprimiera cada vez que el programa ejecutaba las corridas para ordenar la lista. En el test tambien pude validarlo cuando ejectuo pytest -s -v
+   -El print va a quedar en la funcion main, solo se motrará la lista inicial y la lista final ordenada.
+
+4. - Creo que entendí mal el ejercicio, pensé que era elegir 3 ejercicios y hacer unitest a cada uno.
+   - Ya quedaron corregidos.
+
+5. - La misma confusión anterior.
+
+6. - Listo se omitieron esos archivos en el commit
+
+7.  - Ya corregi las identaciones con tabulacion para que cumpla con PEP8
