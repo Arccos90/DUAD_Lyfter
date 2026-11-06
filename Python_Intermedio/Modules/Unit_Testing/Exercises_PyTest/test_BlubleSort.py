@@ -43,11 +43,24 @@ def test_bubble_sort_can_not_work_with_no_list_parameter_is_tupla():
 def test_bubble_sort_can_not_work_with_no_list_parameter_is_integer(): 
  invalid_list = 12569
 #act & assert
- with pytest.raises(TypeError):
-    bubble_sort(invalid_list)
+ with pytest.raises(TypeError) as exc_info:
+    bubble_sort(invalid_list)  
+ 
+ print(f"\n[DEBUG] Mensaje real capturado: {exc_info.value}")
 
 def test_bubble_sort_can_not_work_with_string_item_in_the_list(): 
  invalid_list = ["a","b",6,9,4]
 #act & assert
- with pytest.raises(TypeError):
-    bubble_sort(invalid_list)
+ with pytest.raises(TypeError) as exc_info:
+    bubble_sort(invalid_list)  
+ 
+ print(f"\n[DEBUG] Mensaje real capturado: {exc_info.value}")
+
+def test_bubble_sort_can_not_work_with_order_strings_item_in_the_list(): 
+ invalid_list = "abcde"
+#act & assert
+ with pytest.raises(TypeError) as exc_info: # Encontré esta manera de identificar el error en el Unitest
+    bubble_sort(invalid_list)  
+    
+ assert "El parámetro debe ser una lista" in str(exc_info.value)
+ print(f"\n[DEBUG] Mensaje real capturado: {exc_info.value}")  

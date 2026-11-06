@@ -1,7 +1,8 @@
 "Exercise 4: Funciones, Scope y Mutables"
 
-
 def reverse_string(my_string):
+    if "$" in my_string:
+        raise ValueError("El texto no debe contener el símbolo $")
     inverted_text = ""
     for char in range(len(my_string)-1,-1,-1):
      inverted_text = inverted_text + my_string[char]
@@ -10,5 +11,6 @@ def main():
     original_text =input("Ingrese una frase:") # El valor de la variable original_text, se usa como el valor para la función reverse_string
     final_text = reverse_string(original_text)
     print(f"Su frase invertida es: {final_text}")
+
 if __name__== "__main__":
     main()
