@@ -1,0 +1,52 @@
+{
+    "categories": {
+        "Alimentacion": {
+            "name": "Alimentacion",
+            "color": "#d910d9"
+        },
+        "Supermercado": {
+            "name": "Supermercado",
+            "color": "#0e10d9"
+        },
+        "Salidas a Comer": {
+            "name": "Salidas a Comer",
+            "color": "#d916d9"
+        },
+        "Salario": {
+            "name": "Salario",
+            "color": "#d9d908"
+        }
+    },
+    "transactions": [
+        {
+            "trans_type": "Gasto",
+            "description": "Hamburguesas",
+            "amount": 5000.0,
+            "date": "10/11/2026",
+            "category": {
+                "name": "Salidas a Comer",
+                "color": "#d916d9"
+            }
+        },
+        {
+            "trans_type": "Gasto",
+            "description": "Cervezas y Snacks",
+            "amount": 6200.0,
+            "date": "10/11/2026",
+            "category": {
+                "name": "Salidas a Comer",
+                "color": "#d916d9"
+            }
+        },
+        {
+            "trans_type": "Ingreso",
+            "description": "I quincena Noviembre",
+            "amount": 500000.0,
+            "date": "10/11/2026",
+            "category": {
+                "name": "Salario",
+                "color": "#d9d908"
+            }
+        }
+    ]
+}
