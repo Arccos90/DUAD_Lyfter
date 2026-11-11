@@ -9,6 +9,8 @@ class Category:
             "color": self.color
         }
 
+
+
 class Transaction:
     def __init__(self,category:Category,trans_type:str, description:str, amount:float,date):
         self.category = category
@@ -26,13 +28,19 @@ class Transaction:
             # Aquí anidamos el diccionario de la categoría
             "category": self.category.to_dict()
         }
+
+    
 class Income (Transaction):
     def __init__(self, category:Category, description:str, amount:float, date):
         super().__init__(category,"Ingreso", description, amount, date)
 
+
+
 class Expense(Transaction):
     def __init__(self, category:Category, description:str, amount:float, date):
         super().__init__(category,"Gasto", description, amount, date)
+
+
 
 class  AdmFinance:
     def __init__(self):
@@ -40,8 +48,11 @@ class  AdmFinance:
         self.transactions_list =[]
         self.categories = {}
 
+
     def add_new_transaction (self, transaction:Transaction):
         self.transactions_list.append(transaction)
+
+
 
     def sum_incomes (self) -> float:
         total=0.0
@@ -50,12 +61,15 @@ class  AdmFinance:
                 total += trans.amount
         return total
 
+
     def sum_expenses (self) -> float:
         total=0.0
         for trans in self.transactions_list:
             if trans.trans_type == "Gasto":
                 total += trans.amount
         return total
+
+    
     def calc_balance (self) -> float:
         balance = self.sum_incomes()-self.sum_expenses()
         return balance

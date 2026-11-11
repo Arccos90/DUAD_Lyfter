@@ -3,6 +3,7 @@ import os
 from finance_manager import Category, Income, Expense, AdmFinance
 
 data_file = os.path.dirname(os.path.abspath(__file__))+"/finance_data.json"
+# ubica el archivo en la ruta donde esta la carpeta del proyecto
 
 
 def save_data(manager:AdmFinance):

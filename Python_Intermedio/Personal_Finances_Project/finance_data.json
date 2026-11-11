@@ -15,6 +15,10 @@
         "Salario": {
             "name": "Salario",
             "color": "#d9d908"
+        },
+        "Gasolina": {
+            "name": "Gasolina",
+            "color": "#513c38"
         }
     },
     "transactions": [
@@ -46,6 +50,26 @@
             "category": {
                 "name": "Salario",
                 "color": "#d9d908"
+            }
+        },
+        {
+            "trans_type": "Gasto",
+            "description": "Combustible viaje a la playa",
+            "amount": 35000.0,
+            "date": "10/11/2026",
+            "category": {
+                "name": "Gasolina",
+                "color": "#513c38"
+            }
+        },
+        {
+            "trans_type": "Gasto",
+            "description": "Cervezas",
+            "amount": 3600.0,
+            "date": "10/11/2026",
+            "category": {
+                "name": "Alimentacion",
+                "color": "#d910d9"
             }
         }
     ]
