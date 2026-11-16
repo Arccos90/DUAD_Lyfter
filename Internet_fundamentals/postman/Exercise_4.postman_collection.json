@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "a9a31a74-dd24-4262-8cc3-14855cf73b10",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "60127029",
+		"_collection_link": "https://nenofer55-2573538.postman.co/workspace/daniel-fernandez's-Workspace~54c4eff5-fc83-481e-8fc5-9eef0fe3f929/collection/60127029-a9a31a74-dd24-4262-8cc3-14855cf73b10?action=share&source=collection_link&creator=60127029"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "PUT",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GET_posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/comments/50",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"comments",
+						"50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_Newpost",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"postId\": 55,\n    \"id\": 505,\n    \"name\": \"Costarricans Usser\",\n    \"email\": \"Puravida@CR.com\",\n    \"body\": \"Hola\",\n    \"phone_zone\": 506\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST_Added_\"Hola_Pura_Vida\"",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"postId\": 10,\n    \"id\": 50,\n    \"name\": \"dolorum soluta quidem ex quae occaecati dicta aut doloribus\",\n    \"email\": \"Kiana_Predovic@yasmin.io\",\n    \"body\": \"Hola\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/comments/50?Body=hola",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"comments",
+						"50"
+					],
+					"query": [
+						{
+							"key": "Body",
+							"value": "hola"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
