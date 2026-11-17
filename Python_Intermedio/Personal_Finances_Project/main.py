@@ -1,6 +1,6 @@
 from gui_interface import draw_login_window, draw_main_window
 from finance_manager import AdmFinance
-from data_percistence import load_data
+from data_persistence import load_data
 
 def main():
     gestor_activo = AdmFinance()

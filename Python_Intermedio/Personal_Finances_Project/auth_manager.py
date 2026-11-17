@@ -1,8 +1,8 @@
 import json
 import os
 
-#credential_file = "credencials.json"
-credential_file = os.path.dirname(os.path.abspath(__file__))+"/credencials.json" #Estaba creando el json fuera de la carpeta destinada para el proyecto
+#credential_file = "credentials.json"
+credential_file = os.path.dirname(os.path.abspath(__file__))+"/credentials.json" #Estaba creando el json fuera de la carpeta destinada para el proyecto
 def load_credentials():
     if not os.path.exists(credential_file):
         return None

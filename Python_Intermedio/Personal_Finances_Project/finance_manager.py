@@ -26,7 +26,7 @@ class Transaction:
             "amount": self.amount,
             "date": self.date,
             # Aquí anidamos el diccionario de la categoría
-            "category": self.category.to_dict()
+            "category": self.category.name
         }
 
     

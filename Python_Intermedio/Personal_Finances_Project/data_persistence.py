@@ -41,15 +41,17 @@ def load_data(manager:AdmFinance):
                 manager.categories[name] = new_cat
         if "transactions" in data:
             for trans_info in data["transactions"]:
-                cat_name=trans_info["category"]["name"]
-                category_target=manager.categories.get(cat_name)
+                cat_name= trans_info["category"] #cat_name, ahora es un string y no un diccionario
+                category_target = manager.categories.get(cat_name)
                 if category_target:
                     if trans_info["trans_type"]== "Ingreso":
                         new_trans = Income(category_target, trans_info["description"], trans_info["amount"], trans_info["date"])
+                        manager.add_new_transaction(new_trans)
                     elif trans_info["trans_type"] == "Gasto":
                         new_trans = Expense(category_target, trans_info["description"], trans_info["amount"], trans_info["date"])
-
-                    manager.add_new_transaction(new_trans)
+                        manager.add_new_transaction(new_trans)
+                    else:
+                        print(f"Error: Tipo de transacción desconocido {trans_info['trans_type']}")
 
     except json.JSONDecodeError:
         print("Error: El archivo JSON está corrupto o vacío")
