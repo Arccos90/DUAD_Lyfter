@@ -23,10 +23,23 @@ def draw_login_window():
                 window.close()
                 return False
             if event == "Registrar":
-                save_credentials(values["-USER-"], values["-PWD-"], values["-HINT-"])
-                sg.popup("Cuenta creada exitosamente. Reinicia la aplicación para entrar.")
-                window.close()
-                return False
+                try:
+                    username = values["-USER-"].strip()
+                    password = values["-PWD-"].strip()
+                    hint = values["-HINT-"].strip()
+                    
+                    if not username:
+                        raise ValueError("El nombre de usuario no puede estar vacío.")
+                    if not password:
+                        raise ValueError("La contraseña no puede estar vacía.")
+                    
+                    save_credentials(values["-USER-"], values["-PWD-"], values["-HINT-"])
+                    sg.popup("Cuenta creada exitosamente. Reinicia la aplicación para entrar.")
+                    window.close()
+                    break #se sale del ciclo de programa sin matar el programa
+                except ValueError as error:
+                    sg.popup_error(str(error), title="Error de Registro")
+                    continue
 
     # Caso B: Ya existe una cuenta (Login)
     else:

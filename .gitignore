@@ -1,0 +1,7 @@
+# Archivos de caché de Python
+__pycache__/
+*.pyc
+
+# Archivos sensibles de la App de Finanzas
+Python_Intermedio/Personal_Finances_Project/credentials.json
+Python_Intermedio/Personal_Finances_Project/finance_data.json

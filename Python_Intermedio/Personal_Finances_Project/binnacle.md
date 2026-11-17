@@ -100,36 +100,57 @@ To_do:
 2. Se dará prioridad al feedback del primer entregable
 3. Posterior se incluiran las funcionalidades del sprint anterior.
 
-[x] En **process_new_transaction**, las validaciones de categorías vacías y título vacío solo hacen print, así que el flujo continúa y se puede guardar un movimiento sin título. Verifica que esas validaciones detengan el proceso igual que lo hace la de la categoría, para que la interfaz pueda mostrar el error con sg.popup_error.
+[x] 1.En **process_new_transaction**, las validaciones de categorías vacías y título vacío solo hacen print, así que el flujo continúa y se puede guardar un movimiento sin título. Verifica que esas validaciones detengan el proceso igual que lo hace la de la categoría, para que la interfaz pueda mostrar el error con sg.popup_error.
 >>R/ Cambié los prints por raise ValueError. 
 
-[x] Cuando el monto no es un número (por ejemplo "abc"), *float()*  lanza un ValueError con un mensaje en inglés que llega tal cual al usuario. Revisa cómo podrías capturar ese caso en *validate_amount* para mostrar un mensaje más claro.
+[x] 2.Cuando el monto no es un número (por ejemplo "abc"), *float()*  lanza un ValueError con un mensaje en inglés que llega tal cual al usuario. Revisa cómo podrías capturar ese caso en *validate_amount* para mostrar un mensaje más claro.
 >>R/ Revise el método validate_amount. Agregué un try/except ValueError para que capte todo lo que no sea un float como un error. Y muestre el mensaje más claro del tipo de error y no deje continuar el programa hasta que sea corregido o modificado.
 
-[x] La calculadora usa *eval()*, que ejecuta cualquier código Python que se escriba en ese campo, no solo sumas y restas. Además, el propio ejemplo que muestras ("₡500 + ₡350 - ₡50") falla porque el símbolo ₡ no es válido para Python. Investiga una forma de separar la expresión en números y operadores y hacer el cálculo tú mismo, así controlas exactamente qué se permite.
+[x] 3.La calculadora usa *eval()*, que ejecuta cualquier código Python que se escriba en ese campo, no solo sumas y restas. Además, el propio ejemplo que muestras ("₡500 + ₡350 - ₡50") falla porque el símbolo ₡ no es válido para Python. Investiga una forma de separar la expresión en números y operadores y hacer el cálculo tú mismo, así controlas exactamente qué se permite.
 >>R/ Sustituí *eval()* por una funcion llamada depurador_monto_compuesto. Con esto lo que se busca es "limpiar" el valor o la expresión que el usuario introduzca, para que sea acorde a las funcionalidades de la calculadora. Si se ingresa $ o ₡ la función lo va a traducir a un float sencillo.
 
-[x] Para refrescar la ventana principal, *draw_main_window* se llama a sí misma cada vez que se agrega algo, incluso si el usuario presiona "Cancelar". Eso es recursión: cada acción deja una llamada abierta en la pila. Revisa el método *update()* de los elementos de FreeSimpleGUI, por ejemplo window["-TABLE-"].update(values=...) y lo mismo para los textos del resumen, para actualizar la tabla sin cerrar y volver a construir la ventana.
+[x] 4.Para refrescar la ventana principal, *draw_main_window* se llama a sí misma cada vez que se agrega algo, incluso si el usuario presiona "Cancelar". Eso es recursión: cada acción deja una llamada abierta en la pila. Revisa el método *update()* de los elementos de FreeSimpleGUI, por ejemplo window["-TABLE-"].update(values=...) y lo mismo para los textos del resumen, para actualizar la tabla sin cerrar y volver a construir la ventana.
 
 >>>R/ Acá se aplicaron las sugerencias de no cerrar y volver a llamar la funcion *draw_main_windows* si no usar .update(). Tuve que buscar información de como hacer para no afectar lo que ya estaba estructurado.
 
-[X] En **process_new_category**, la verificación de duplicados se hace con el nombre sin strip(), pero luego se guarda limpio, así que " Comida" pasa la validación aunque "Comida" ya exista. También, si el usuario no elige color, se guarda un string vacío y el valor por defecto "#FFFFFF" de Category nunca se usa. Verifica ambos casos.
+[X] 5.En **process_new_category**, la verificación de duplicados se hace con el nombre sin strip(), pero luego se guarda limpio, así que " Comida" pasa la validación aunque "Comida" ya exista. También, si el usuario no elige color, se guarda un string vacío y el valor por defecto "#FFFFFF" de Category nunca se usa. Verifica ambos casos.
 >>>R/ Se corrigió incluyendo que para ambos parametros (name & color) se ejecute usando .strip(). Y modifique la funcion para que cuando el usuario no ingrese color, no se guardará como vacío si no con el valor por defecto de las Clase Category()
 
-[*] En **load_data**, si un movimiento tiene un trans_type distinto de "Ingreso" o "Gasto", la variable new_trans no se crea en esa vuelta y se termina agregando la del movimiento anterior (o falla si es el primero). Además, cada transacción guarda en el JSON el diccionario completo de su categoría, duplicando el color. ¿Qué dato mínimo necesitas realmente guardar para reconstruir la relación?
+[x] 6.En **load_data**, si un movimiento tiene un trans_type distinto de "Ingreso" o "Gasto", la variable new_trans no se crea en esa vuelta y se termina agregando la del movimiento anterior (o falla si es el primero). Además, cada transacción guarda en el JSON el diccionario completo de su categoría, duplicando el color. ¿Qué dato mínimo necesitas realmente guardar para reconstruir la relación?
 >>>R/ _Ahora busca la información de la transacción como un str, ya que estaba como un un diccionario. Y se agrega como una nueva transacción.
 >>>   _Solo se necesito el nombre de la categoría, no vamos a cargar el código del color.
 
-[] Ya estás recolectando el color de cada categoría, pero todavía no se usa en la tabla. Si quieres completar ese requerimiento opcional, revisa el parámetro row_colors de sg.Table.
+[x] 7.Ya estás recolectando el color de cada categoría, pero todavía no se usa en la tabla. Si quieres completar ese requerimiento opcional, revisa el parámetro row_colors de sg.Table.
 >>> R/ busque en internet como hacerlo, por que tenia que enlazar la informacions guardada para poder mostrar el color para cada transaccions-categoria. agregue una lista row_color.
 
-[] Todos los identificadores de código deben estar en inglés. En gui_interface.py hay varios en español: ventana_agregar_categoria, ventana_agregar_movimiento, calcular_monto_compuesto, nombres_categorias, resultado_final, expresion, monto_str, fila, tipo y las keys como NOMBRE-, TITULO-, MONTO-. Los textos que ve el usuario sí pueden quedarse en español. Revisa también los nombres de archivo data_percistence.py y credencials.json, y el parámetro type en process_new_transaction, que oculta la función integrada de Python con ese nombre.
+[x] 8.Todos los identificadores de código deben estar en inglés. En gui_interface.py hay varios en español: ventana_agregar_categoria, ventana_agregar_movimiento, calcular_monto_compuesto, nombres_categorias, resultado_final, expresion, monto_str, fila, tipo y las keys como NOMBRE-, TITULO-, MONTO-. Los textos que ve el usuario sí pueden quedarse en español. Revisa también los nombres de archivo data_percistence.py y credencials.json, y el parámetro type en process_new_transaction, que oculta la función integrada de Python con ese nombre.
 >>> Se modificaron los nombre de variables y funciones en espanol en el módulo gui_interface.py
 >>> Se corrigieron los nombres de los archivos .py (credentials.py y data_persistence.py)
 >>> modifique la variable type por type_name para que no afecte con la función integrada de python.
 
-[] El PR incluye carpetas __pycache__ con archivos .pyc, además de credencials.json con tu usuario y contraseña en texto plano y finance_data.json con tus datos. Investiga cómo usar un archivo .gitignore para que nada de eso se suba al repositorio.
+[*] 9.El PR incluye carpetas __pycache__ con archivos .pyc, además de credencials.json con tu usuario y contraseña en texto plano y finance_data.json con tus datos. Investiga cómo usar un archivo .gitignore para que nada de eso se suba al repositorio.
+>>> para el próximo commit se omitira estos archivos.
+> 1. Elimina las credenciales del rastreo de Git
+    git rm --cached Python_Intermedio/Personal_Finances_Project/credentials.json
+> 2. Elimina la base de datos personal del rastreo de Git
+    git rm --cached Python_Intermedio/Personal_Finances_Project/finance_data.json
+> 3. Elimina toda la caché de Python del rastreo de Git
+    find . -name "__pycache__" -exec git rm -r --cached {} +
+    find . -name "*.pyc" -exec git rm -r --cached {} +
+    >>> no estoy seguro de esta parte, luego de este commit valido si funcionó esta parte.
 
-[] En el registro inicial se puede crear una cuenta con usuario o contraseña vacíos. Como es un extra que tú mismo agregaste, vale la pena aplicarle las mismas validaciones básicas que al resto de formularios.
+[x] 10.El archivo test_logic.py está vacío y el enunciado pide mínimo 8 pruebas unitarias que corran sin la interfaz. Tu lógica ya está bastante bien separada, así que tienes buenos candidatos: 
+>>> voy a utilizar una carpeta llamada Test y haré un .py para cada módulo a testear.
+>validate_amount: Listo, prueba si se corrige el uso de "," como decimal a "."
+>                 También se hizo un test para validar el error si se ingresa un string                      
+>process_new_category: Listo
+>process_new_transaction: Listo, identifica si la categoria existe
+>sum_incomes: Listo, solo suma incomes
+>sum_expenses: Listo, solo suma expenses
+>calc_balance: Listo, suma todo y da el balance final.
+>process_new_user: Listo, se valida si al crear un usuario se deja algun valor en blanco.
+Revisa también que al probar actions no termines escribiendo sobre tu finance_data.json real, ya que esas funciones llaman a save_data. ¿Cómo podrías probar esa lógica sin tocar tus datos?
+>>> Encontré una manera de hacer estas pruebas sin afectar finance_data.json. El método se llama "Mocking" hay que importar una libreria *from unittest.mock import patch*
 
-[] El archivo test_logic.py está vacío y el enunciado pide mínimo 8 pruebas unitarias que corran sin la interfaz. Tu lógica ya está bastante bien separada, así que tienes buenos candidatos: validate_amount, process_new_category, process_new_transaction, sum_incomes, sum_expenses y calc_balance. Revisa también que al probar actions no termines escribiendo sobre tu finance_data.json real, ya que esas funciones llaman a save_data. ¿Cómo podrías probar esa lógica sin tocar tus datos?
+[x] En el registro inicial se puede crear una cuenta con usuario o contraseña vacíos. Como es un extra que tú mismo agregaste, vale la pena aplicarle las mismas validaciones básicas que al resto de formularios.
+>>> Se incorporó una validación con .strip y un ciclio de validación para evitar que se ingrese dejando vacios los espacios. ahora lanza un error pero no cierra el programa, solo pide que vuelva a ingresa la información.
